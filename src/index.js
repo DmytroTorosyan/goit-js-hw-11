@@ -77,7 +77,7 @@ function onLoadMore() {
 function renderGalleryCard(arrayOfObjects) {
   const markup = arrayOfObjects
     .map(({ largeImageURL, webformatURL, tags, likes, views, comments, downloads }) => {
-      return `<a href="${largeImageURL} class="gallery-link">
+      return `<a href="${largeImageURL}" class="gallery-link">
       <div class="photo-card">
   <img src="${webformatURL}" alt="${tags}" loading="lazy" />
   <div class="info">
