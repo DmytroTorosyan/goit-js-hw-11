@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 import ApiService from '../src/js/ApiService.js';
 import Lodash from 'lodash.debounce';
 import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 const DEBOUNCE_DELAY = 300;
 let startAmount = 40;
@@ -13,6 +14,10 @@ const refs = {
   loadMoreBtn: document.querySelector('.load-more'),
   submitBtn: document.querySelector('[type="submit"]'),
 };
+
+const lightbox = new SimpleLightbox(".gallery a", {
+ 
+});
 
 const apiService = new ApiService();
 
@@ -97,7 +102,9 @@ function renderGalleryCard(arrayOfObjects) {
       </a>`;
     })
     .join('');
-  refs.galleryBlock.insertAdjacentHTML('beforeend', markup);
+    refs.galleryBlock.insertAdjacentHTML('beforeend', markup);
+    lightbox.refresh();
+    window.ll = lightbox;
 }
 
 function clearRequestedInfo() {
